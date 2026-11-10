@@ -1,0 +1,7 @@
+<% if @assigned %>
+  $(".kanban-task[data-task-id='<%= @task.id %>']").replaceWith("<%= j render partial: '/tasks/kanban_task', locals: { task: @task } %>");
+  $('#task-modal').modal('hide');
+  toastr.primary({description: "<%= tm(Task, :assignee_added) %>", life_time: 2000})
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

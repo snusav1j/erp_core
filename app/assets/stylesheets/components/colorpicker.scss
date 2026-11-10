@@ -1,0 +1,24 @@
+.pcr-app .pcr-interaction .pcr-type.active, .pcr-app .pcr-interaction .pcr-save{
+  background: var(--color-primary) !important;
+}
+
+.colorpicker-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.colorpicker-preview {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.colorpicker-input {
+  display: none;
+}
+.pickr .pcr-button{
+  transition: .1s ease !important;
+}

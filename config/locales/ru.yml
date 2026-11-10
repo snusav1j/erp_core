@@ -1,0 +1,571 @@
+ru:
+  task_mailer:
+    hello: "Здравствуйте, %{name}!"
+    deadline: "Срок: %{deadline}"
+    go_to_tasks: Перейти к задачам
+    assigned:
+      subject: "Новая задача: %{title}"
+      body: "Вам назначена задача «%{title}»."
+    returned_to_work:
+      subject: "Задача возвращена в работу: %{title}"
+      body: "Задача «%{title}» возвращена в работу."
+    completed:
+      subject: "Задача завершена: %{title}"
+      body: "Задача «%{title}» завершена."
+  helpers:
+    compact_duration:
+      day_short: д
+      hour_short: ч
+      minute_short: мин
+      second_short: сек
+  model_errors:
+    
+  sidebar:
+    groups:
+      tasks: Задачи
+      system: Система
+
+ 
+  date:
+    abbr_month_names:
+      - ~
+      - Янв
+      - Фев
+      - Мар
+      - Апр
+      - Май
+      - Июн
+      - Июл
+      - Авг
+      - Сен
+      - Окт
+      - Ноя
+      - Дек
+
+    order:
+      - :day
+      - :month
+      - :year
+
+  controller:
+
+  global:
+    date:
+      months:
+        january: янв
+        february: фев
+        march: мар
+        april: апр
+        may: май
+        june: июн
+        july: июл
+        august: авг
+        september: сен
+        october: окт
+        november: ноя
+        december: дек
+      weekdays:
+        sunday: Вс
+        monday: Пн
+        tuesday: Вт
+        wednesday: Ср
+        thursday: Чт
+        friday: Пт
+        saturday: Сб
+
+    app_title: ErpCore
+    save: Сохранить
+    saving: Сохраняем
+    notifications: Уведомления
+    more: Подробнее
+    versions: Журнал изменений
+    empty: Пусто
+    no_changes: Нет изменений
+    search: Поиск
+    select: Выбрать
+    continue: Продолжить
+    total: ИТОГО
+    add: Добавить
+    adding: Добавляем
+    remove: Убрать
+    destroy: Удалить
+    destroying: Удаляем
+    undo: Отменить
+    redo: Повторить
+    add_row: Добавить строку
+    add_column: Добавить столбец
+    remove_row: Удалить строку
+    remove_column: Удалить столбец
+    merge_unmerge: Объединить / Разъединить
+    bold: Жирный
+    italic: Курсив
+    align_left: По левому краю
+    align_center: По центру
+    align_right: По правому краю
+    borders: Границы
+    add_row_before: Добавить строку перед
+    add_row_after: Добавить строку после
+    delete_rows: Удалить строки
+    delete_columns: Удалить столбцы
+    delete_row: Удалить строку
+    add_column_before: Добавить столбец перед
+    add_column_after: Добавить столбец после
+    delete_column: Удалить столбец
+    add_images: Добавить изображения
+    set_main_image: Сделать основным
+    selected_as_main_image: Выбрано как основное
+    cancel: Отмена
+    only_latin: Только латинские буквы A-Z
+    close: Закрыть
+    payment_status: Статус оплаты
+    beta: бета
+    soon: скоро
+    in_development: в разработке
+    due: До
+    deadline: Дедлайн
+    total_tasks: Задач
+    progress: Прогресс
+    you: Вы
+    for_task: Для задачи
+    batch: Партия
+    stock_item: Товар
+    repeat: Повторить
+    cancel: Отменить
+    created: Создано
+    created_in: Создано в
+    created_on: Создано на
+    created_for: Создано для
+    total: ИТОГО
+    completed_in: Завершено за
+    in: В
+    on: На
+    for: Для
+    create_batch_title: На складе создастся одна партия с указанным количеством товаров.
+    create_stock_item_title: На складе создастся отдельная запись для каждого товара. При количестве N будет создано N записей.
+    copy: Скопировать
+    access_denied: Доступ запрещен
+    record_not_found: Запись не найдена
+    filters: Фильтры
+    filters_search: Поиск по фильтрам
+    show_per_page: Показывать на странице
+    reset: Сбросить
+    done: Готово
+    general_info: Основная информация
+    in_transit: В доставке
+    settings: Настройки
+    is_batch: Создать партию
+    finish_edit: Завершить редактирование
+    download: Скачать
+    downloading: Скачивается
+    fill_email_for_send: Заполните email для отправки
+    send_to_email: Отправить на почту
+    sending_to_email: Отправляем на почту
+    format_xlsx: Excel
+    format_pdf: PDF
+    format_csv: CSV
+    remaining: Осталось
+    payment_downcase: оплата
+    opening: Открываем
+    payment_upcase: Оплата
+    purchase_currency_downcase: валюта закупки
+    purchase_currency_payment_upcase: Валюта закупки
+    operation_type: Тип операции
+    debit_account: Счет списания
+    send_to_storage: Доставить на склад
+    send_to_client: Доставить клиенту
+    send_to: Отправить на
+    send: Отправить
+    created_at: Создано
+    updated_at: Обновлено
+    show: Открыть
+    edit: Редактировать
+    version: Журнал изменений
+    last_updated_at: Последнее обновление
+    attachments: Вложения
+    not_specified: Не задано
+    success: Успешно
+    sign_out: Выход
+    back: Назад
+    sign_in: Вход
+    primary: Информация
+    warning: Внимание
+    error: Ошибка
+    role: Роль
+    string: Строка
+    text: Текст
+    root: Главная
+    dark_theme: Темная тема
+    light_theme: Светлая тема
+    collection: Список
+    integer: Целое число
+    bigint: Целое число
+    float: Число с плавающей точкой
+    decimal: Десятичное число
+    number: Число
+    date: Дата
+    datetime: Дата и время
+    boolean: Логическое
+    filters: Фильтры
+    thousand: тыс
+    million: млн
+    billion: млрд
+    trillion: трлн
+    go_to: Перейти
+    data_updated: Данные обновлены
+    contact_the_administrator: Обратитесь к администратору
+    table_updated: Таблица обновлена
+    list_updated: Список обновлен
+    all: Все
+    link: Ссылка
+    custom_field: Пользовательское поле
+    change_column_order: Изменить порядок колонок
+    change_column_order_msg: Включите, затем перетащите заголовок колонки
+    last_selected_color: Последний выбранный цвет
+    delete: Удалить
+    create: Создать
+    back: Назад
+    'yes': Да
+    'no': Нет
+    saved: Успешно сохранено
+    destroyed: Успешно удалено
+    not_found: Не найдено
+    confirmation: Подтвердите действие
+    are_you_sure: Это действие нельзя отменить
+    purchase_complete_warning: Вы уверены, что хотите завершить закупку? Проверьте данные перед подтверждением.
+    purchase_return_warning: Вы уверены, что хотите оформить возврат закупки?
+    copied_to_clipboard: Скопировано в буфер обмена
+    clipboard: Буфер обмена
+    text_copied: Текст скопирован
+  activerecord:
+    models:
+      task: Задачи 
+      task_assignee: Исполнители
+      role: Роли
+      user: Пользователи
+      financial_operation: Финансовые операции
+      financial_operation_payment: Платежи
+      bank_account: Банковские счета
+      currency: Валюты
+      warehouse: Склады
+      supplier: Поставщики
+      version: История изменений
+      user_setting: Настройки пользователя
+    attributes:
+      task:
+        statuses:
+          draft: Черновики
+          new: Новые
+          in_progress: В работе
+          completed: Завершены
+          cancelled: Отменены
+        priorities:
+          low: Низкий приоритет
+          normal: Обычный приоритет
+          high: Высокий приоритет
+          urgent: Срочный приоритет
+        id: ID
+        title: Задачи
+        title_single: Задача
+        task_title: Название
+        description: Описание
+        author: Автор
+        author_id: Автор
+        assignees: Исполнители
+        parent: Родительская задача
+        parent_id: Родительская задача
+        subtasks: Пункты задачи
+        status: Статус
+        priority: Приоритет
+        requires_review: Требуется проверка
+        start_at: Дата начала
+        deadline: Дедлайн
+        completed_at: Дата выполнения
+        reviewed_at: Дата проверки
+        created_at: Создано
+        updated_at: Обновлено
+        new: Новая задача
+        new_subtask: Новый пункт задачи
+        edit: Редактировать задачу
+        edit_subtask: Редактировать пункт задачи
+        task_created: Задача создана
+        task_updated: Задача обновлена
+        task_destroyed: Задача удалена
+        add_assignee: Добавить исполнителя
+        assignee_added: Исполнитель добавлен
+        assignee_destroyed: Исполнитель удален
+        start: Взять в работу
+        starting: Берем в работу
+        complete: Завершить задачу
+        completing: Завершаем
+        return_to_work: Вернуть в работу
+        return_to_draft: Вернуть в черновик
+        returning_to_draft: Возвращение в черновик
+        task_returned_to_draft: Задача возвращена в черновик
+        repeat: Повторить задачу
+        repeating: Повторение задачи
+        task_repeated: Задача повторена
+        returning_to_work: Возвращаем в работу
+        publish: Опубликовать
+        publishing: Публикуем
+        cancel: Отменить
+        cancelling: Отменяем
+        destroy: Удалить
+        destroying: Удаляем
+        task_published: Задача опубликована
+        task_started: Задача взята в работу
+        task_completed: Задача завершена
+        task_returned_to_work: Задача возвращена в работу
+        task_cancelled: Задача отменена
+      task_assignee:
+        id: ID
+        task: Задача
+        task_id: Задача
+        user: Пользователь
+        user_id: Пользователь
+        created_at: Создано
+        updated_at: Обновлено
+      version:
+        id: ID
+        title: История изменений
+        item: Объект
+        event: Событие
+        whodunnit: Пользователь
+        updated_at: Время
+        created_at: Время
+        details: Показать измененные данные
+        object: Старые значения
+        object_changes: Изменения
+        changes: Изменения
+        changed_details: Измененные данные
+        item_type: Тип объекта
+        attribute: Поле
+        old_value: Старое значение
+        new_value: Новое значение
+        event_create: Создал
+        event_update: Изменил
+        event_destroy: Удалил
+        event_purchaseitem_create_record: Добавил позицию в закупку
+        event_orderitem_create_record: Добавил позицию в заказ
+        event_orderitem_update_record: Изменил позицию в заказе
+        event_purchaseitem_update_record: Изменил позицию в закупке
+        event_stockmovement_create_record_0: Движение на склад от поставщика
+        event_stockmovement_create_record_1: Движение от склада до клиента
+        event_stockmovement_create_record_4: Возврат от клиента
+        event_stockmovement_create_record_5: Возврат поставщику
+        event_stockmovement_create_record_6: Отмена операции
+        event_create_record: Создал запись
+        event_create_record: Создал запись
+        event_update_record: Изменил запись
+        event_destroy_record: Удалил запись
+        records_changed_length: 'Изменено колонок: %{changed_length}'
+        item_id: ID объекта
+      user:
+        id: ID
+        title: Пользователи
+        title_single: Пользователь
+        email: Email
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        role: Роль
+        login: Войти
+        authorization: Вход
+        password_recovery: Восстановление пароля
+        send_password_recovery_link: Восстановить пароль
+        change_password: Изменение пароля
+        characters_minimum: символов минимум
+        logout: Выход
+        profile: Профиль
+        banned: Аккаунт заблокирован
+        last_seen_at: Был в сети
+        last_name: Фамилия
+        first_name: Имя
+        middle_name: Отчество
+        birthday: Дата рождения
+        phone: Телефон
+        telegram: Telegram
+        telegram_chat_id: Telegram Chat ID
+        created_at: Создано
+        updated_at: Обновлено
+        role_ceo: Владелец
+        role_director: Директор
+        role_manager: Менеджер
+        access_denied: Доступ ограничен
+        error_contact_administrator: Произошла ошибка доступа. Обратитесь к администратору
+        user_created: Пользователь создан
+        user_updated: Пользователь обновлен
+        user_destroyed: Пользователь удален
+        encrypted_password: Зашифрованный пароль
+        reset_password: Забыли пароль?
+        reset_password_token: Токен сброса пароля
+        reset_password_sent_at: Токен сброса отправлен
+        remember_created_at: Запомнить с
+        sign_in_count: Число входов
+        current_sign_in_at: Текущий вход
+        last_sign_in_at: Последний вход
+        current_sign_in_ip: IP текущего входа
+        last_sign_in_ip: IP последнего входа
+      role:
+        id: ID
+        title: Роли пользователей
+        title_single: Роль
+        name: Название
+        created_at: Создано
+        updated_at: Обновлено
+        placeholder: Менеджер
+        role_created: Роль создана
+        role_updated: Роль обновлена
+        setup_role: Настроить роль
+        role_destroyed: Роль удалена
+        new: Новая роль
+        edit: Редактировать роль
+        destroy: Удалить роль
+
+      user_setting:
+        id: ID
+        user_id: Пользователь
+        hide_sidebar: Скрыть боковую панель
+        created_at: Создано
+        updated_at: Обновлено
+        column_visibility_block_state: Блок видимости колонок
+        custom_fields_block_state: Блок пользовательских полей
+
+    errors:
+      messages:
+        record_invalid: 'Не удалось сохранить запись: %{errors}'
+        accepted: должно быть принято
+        blank: не может быть пустым
+        present: должно быть пустым
+        empty: не может быть пустым
+        taken: уже занято
+        invalid: имеет неверное значение
+        confirmation: не совпадает с подтверждением
+        too_short:
+          one: слишком короткое (минимум 1 символ)
+          other: слишком короткое (минимум %{count} символов)
+        too_long:
+          one: слишком длинное (максимум 1 символ)
+          other: слишком длинное (максимум %{count} символов)
+        wrong_length:
+          one: имеет неверную длину (должно быть 1 символ)
+          other: имеет неверную длину (должно быть %{count} символов)
+        not_a_number: не является числом
+        not_an_integer: должно быть целым числом
+        greater_than: должно быть больше %{count}
+        greater_than_or_equal_to: должно быть больше или равно %{count}
+        equal_to: должно быть равно %{count}
+        less_than: должно быть меньше %{count}
+        less_than_or_equal_to: должно быть меньше или равно %{count}
+        other_than: не должно быть равно %{count}
+        odd: должно быть нечётным
+        even: должно быть чётным
+        in: имеет недопустимое значение
+        inclusion: имеет недопустимое значение
+        exclusion: зарезервировано
+        required: обязательно
+        too_many: содержит слишком много значений
+        invalid_datetime: имеет неверную дату и время
+        invalid_date: имеет неверную дату
+        invalid_time: имеет неверное время
+        not_saved:
+          one: '1 ошибка помешала сохранению %{resource}:'
+          other: '%{count} ошибок помешали сохранению %{resource}:'
+      models:
+        order_item:
+          attributes:
+            base:
+              stock_source_required: должен быть указан источник остатка (партия или товар)
+              stock_source_conflict: нельзя указывать и партию, и товар одновременно
+        user:
+          attributes:
+            email:
+              taken: уже занят
+              blank: не может быть пустым
+              not_found: пользователя с таким email не существует
+            reset_password_token:
+              invalid: пароль совпадает с текущим
+              
+            password:
+              too_short: слишком короткий
+
+        client:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many: Невозможно удалить запись, так как существуют связанные записи «%{record}».
+                has_one: Невозможно удалить запись, так как существует связанная запись «%{record}».
+  devise:
+    confirmations:
+      confirmed: Ваш адрес электронной почты успешно подтверждён.
+      send_instructions: Вы получите письмо с инструкциями по подтверждению адреса электронной почты через несколько минут.
+      send_paranoid_instructions: Если ваш адрес электронной почты есть в нашей базе данных, вы получите письмо с инструкциями
+        по подтверждению адреса электронной почты через несколько минут.
+    failure:
+      already_authenticated: Вы уже вошли в систему.
+      inactive: Ваш аккаунт ещё не активирован.
+      invalid: Неверный %{authentication_keys} или пароль.
+      locked: Ваш аккаунт заблокирован.
+      last_attempt: У вас осталась одна попытка перед блокировкой аккаунта.
+      not_found_in_database: Неверный %{authentication_keys} или пароль.
+      timeout: Ваша сессия истекла. Пожалуйста, войдите снова, чтобы продолжить.
+      unauthenticated: Войдите, чтобы продолжить.
+      unconfirmed: Вы должны подтвердить адрес электронной почты, чтобы продолжить.
+    mailer:
+      confirmation_instructions:
+        subject: Инструкции по подтверждению
+      reset_password_instructions:
+        subject: Инструкции по сбросу пароля
+        greeting: "Здравствуйте, %{email}!"
+        instruction: Кто-то запросил ссылку для изменения вашего пароля. Вы можете изменить пароль, перейдя по ссылке ниже.
+        action: Изменить пароль
+        ignore: Если вы не запрашивали изменение пароля, просто проигнорируйте это письмо.
+        password_wont_change: Ваш пароль не изменится, пока вы не перейдёте по ссылке выше и не зададите новый пароль.
+      unlock_instructions:
+        subject: Инструкции по разблокировке
+      email_changed:
+        subject: Электронная почта изменена
+      password_change:
+        subject: Пароль изменён
+
+
+    omniauth_callbacks:
+      failure: 'Не удалось аутентифицировать вас через %{kind}, причина: "%{reason}".'
+      success: Вы успешно аутентифицированы через аккаунт %{kind}.
+    passwords:
+      no_token: Вы не можете получить доступ к этой странице без письма для сброса пароля. Если вы пришли из письма для сброса,
+        убедитесь, что используете полный URL, предоставленный в письме.
+      send_instructions: Вы получите письмо с инструкциями по сбросу пароля в течение нескольких минут.
+      send_paranoid_instructions: Если ваш адрес электронной почты есть в нашей базе, вы получите ссылку для восстановления
+        пароля в течение нескольких минут.
+      updated: Ваш пароль успешно изменён. Вы вошли в систему.
+      updated_not_active: Ваш пароль успешно изменён.
+    registrations:
+      destroyed: Пока! Ваш аккаунт успешно удалён. Надеемся увидеть вас снова.
+      signed_up: Добро пожаловать! Вы успешно зарегистрировались.
+      signed_up_but_inactive: Вы успешно зарегистрировались, но мы не можем войти в систему, так как ваш аккаунт ещё не активирован.
+      signed_up_but_locked: Вы успешно зарегистрировались, но мы не можем войти в систему, так как ваш аккаунт заблокирован.
+      signed_up_but_unconfirmed: На ваш адрес электронной почты отправлено сообщение с ссылкой для подтверждения. Пожалуйста,
+        перейдите по ссылке для активации аккаунта.
+      update_needs_confirmation: Вы успешно обновили аккаунт, но необходимо подтвердить новый адрес электронной почты. Проверьте
+        почту и перейдите по ссылке для подтверждения.
+      updated: Ваш аккаунт успешно обновлён.
+      updated_but_not_signed_in: Ваш аккаунт успешно обновлён, но так как пароль был изменён, вам нужно войти снова.
+    sessions:
+      signed_in: Вход выполнен успешно.
+      signed_out: Выход выполнен успешно.
+      already_signed_out: Вы уже вышли из системы.
+    unlocks:
+      send_instructions: Вы получите письмо с инструкциями по разблокировке аккаунта через несколько минут.
+      send_paranoid_instructions: Если ваш аккаунт существует, вы получите письмо с инструкциями по разблокировке через несколько
+        минут.
+      unlocked: Ваш аккаунт успешно разблокирован. Пожалуйста, войдите в систему.
+    errors:
+      messages:
+        already_confirmed: уже был подтверждён, попробуйте войти
+        confirmation_period_expired: должен быть подтверждён в течение %{period}, пожалуйста, запросите новый
+        expired: истёк, пожалуйста, запросите новый
+        not_found: не найден
+        not_locked: не был заблокирован
+        not_saved:
+          one: '1 ошибка помешала сохранению %{resource}:'
+          other: '%{count} ошибок помешали сохранению %{resource}:'

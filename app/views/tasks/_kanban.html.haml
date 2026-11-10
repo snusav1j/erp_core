@@ -1,0 +1,4 @@
+.kanban
+  - Task.statuses.keys.each do |status|
+    - next unless tasks[status].present?
+    = render partial: '/tasks/kanban_column', locals: { status: status, tasks: tasks[status] }

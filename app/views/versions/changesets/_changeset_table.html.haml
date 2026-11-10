@@ -1,0 +1,11 @@
+.table-responsive
+  %table.table.table.max-table-width
+    %thead
+      %tr
+        - version.changeset.each_key do |attribute|
+          - if attribute != 'encrypted_password'
+            %th{ class: attribute.to_sym == :id ? 'text-center' : '' }
+              = version.attribute_name(attribute)
+
+    %tbody
+      = render partial: '/versions/changesets/changeset_item', locals: { version: version }

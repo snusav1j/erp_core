@@ -1,0 +1,20 @@
+.content-box
+  .content-box-header
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:scroll, 'text-primary')
+          = tm(Task, :title)
+        %span.content-box-header-count.text-muted= @tasks.length > 0 ? @tasks.length : ''
+      = render_breadcrumbs
+    .btn-group
+      = link_to new_modal_tasks_path, class: "btn btn-primary", data: { tooltip: tm(Task, :new) }, remote: true do
+        = ph_icon(:plus)
+  .content-box-body
+    #tasks-table= render partial: '/tasks/kanban', locals: { tasks: @tasks_by_status }
+
+
+#task-modal-outer
+#subtask-modal-outer

@@ -1,0 +1,8 @@
+<% if @updated %>
+  $("tr.role-row[data-role-id='<%= @role.id %>']").replaceWith("<%= j render partial: '/roles/item', locals: { role: @role } %>");
+  $('#role-modal').modal('hide');
+  toastr.primary({description: "<%= tm(Role, :role_updated) %>", life_time: 2000})
+
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

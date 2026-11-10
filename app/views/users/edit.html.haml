@@ -1,0 +1,18 @@
+.content-box
+  .content-box-header{ data: { entity: @entity } }
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:shopping_bag, 'text-primary')
+          = tm(User, :title_single)
+          %span.text-muted= "##{@user.id}"
+      = render_breadcrumbs
+    
+    .btn-group
+      = link_to edit_user_path(@user), class: "btn btn-default remote-link", data: { tooltip: tm(User, :edit) } do
+        = ph_bold_icon(:pencil_simple)
+
+
+  .content-box-body

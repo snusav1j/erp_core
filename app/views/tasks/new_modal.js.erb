@@ -1,0 +1,3 @@
+$('#task-modal-outer').html("<%= j render partial: '/tasks/task_modal', locals: { title: @task.parent.present? ? tm(Task, :new_subtask) : tm(Task, :new) } %>");
+$('.datetime-picker').datetimePicker()
+$('#task-modal').modal('show');

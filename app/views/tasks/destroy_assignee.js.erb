@@ -1,0 +1,6 @@
+<% if @destroyed %>
+  $(".kanban-task[data-task-id='<%= @task.id %>'] .kanban-task-assignee[data-user-id='<%= @task_assignee.user_id %>']").remove();
+  toastr.warning({description: "<%= tm(Task, :assignee_destroyed) %>", life_time: 2000})
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

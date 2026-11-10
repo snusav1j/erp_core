@@ -1,0 +1,29 @@
+#devise-form
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .authorization-header
+      .flex-row.align-center.justify-space-between
+        %h2= tm(User, :authorization)
+        = ph_icon(:login)
+    .authorization-body
+      .row
+        .col-md-12
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: tm(User, :email), reuqired: true
+      .row
+        .col-md-12
+          = f.label :password
+          = f.password_field :password, autocomplete: "current-password", placeholder: tm(User, :password), reuqired: true
+      - if devise_mapping.rememberable?
+        .row
+          .col-md-6
+            .space-between.align-center
+              = f.label :remember_me
+              = f.hidden_field :remember_me
+              = f.check_box :remember_me, class: 'switch'
+          .col-md-6.text-right
+            = link_to tm(User, :reset_password), new_password_path(resource_name), class: 'remote-link btn-sm btn-default'
+    .authorization-footer
+      .actions
+        = button_tag type: :submit, form: 'new_user', class: 'btn btn-primary', style: "width: 100%; display: flex; justify-content: center; align-items: center;", data: { disable_with: "#{disable_with_icon}".html_safe } do
+          = tm(User, :login)
+          

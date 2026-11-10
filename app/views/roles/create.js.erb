@@ -1,0 +1,8 @@
+<% if @created %>
+  $("#roles-list").prepend("<%= j render partial: '/roles/item', locals: { role: @role } %>");
+  $('#role-modal').modal('hide');
+  toastr.success({description: "<%= tm(Role, :role_created) %>", life_time: 2000})
+
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

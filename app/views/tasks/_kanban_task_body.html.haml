@@ -1,0 +1,65 @@
+.kanban-task-body
+  .flex-column{ style: "gap: 2px;" }
+    .task_title{ style: "font-weight: 450;", class: subtask ? 'justify-space-between align-start' : '' }
+      = task.task_title
+      - if task.status_draft? && is_author && subtask
+        = popup(id: "task-buttons-#{task.id}", position: :right, class_name: 'flex text-default task-popup-btn') do
+          = link_to edit_modal_tasks_path(id: task.id), class: 'popup-btn text-default', remote: true do
+            = ph_bold_icon(:pencil)
+            = tm(Task, :edit_subtask)
+
+          = link_to task_path(task), method: :delete, remote: true, class: 'popup-btn text-danger', data: { confirm: tgm(:are_you_sure), disable_with: "#{disable_with_icon} #{tm(Task, :destroying)}".html_safe } do
+            = ph_bold_icon(:trash)
+            = tm(Task, :destroy)
+      - elsif subtask
+        .align-center.justify-end
+          - if task.status_new? && is_assignee
+            = link_to start_task_path(task), method: :post, remote: true, class: 'status-badge color-badge-primary', data: { disable_with: "#{disable_with_icon.html_safe} #{tm(Task, :start)}" } do
+              = ph_bold_icon(:play)
+              = tm(Task, :start)
+
+          - if task.status_in_progress? && is_assignee
+            = link_to complete_task_path(task), method: :post, remote: true, class: 'status-badge color-badge-success', data: { disable_with: "#{disable_with_icon.html_safe} #{tm(Task, :complete)}" } do
+              = ph_bold_icon(:check)
+              = tm(Task, :complete)
+
+          - if task.status_completed? && is_author
+            = link_to return_to_work_task_path(task), method: :post, remote: true, class: 'status-badge color-badge-warning', data: { disable_with: "#{disable_with_icon.html_safe} #{tm(Task, :return_to_work)}" } do
+              = ph_bold_icon(:arrow_u_up_left)
+              = tm(Task, :return_to_work)
+
+
+
+    - if task.description.present?
+      .kanban-task-description.text-small.text-muted= task.description
+
+
+  - if task.subtasks.any?
+    .subtasks-block.btn-sm.btn-info
+      = link_to subtasks_modal_task_path(task), style: "width: 100%;", class: 'text-default align-center', remote: true do
+        .justify-space-between
+          .align-center.text-info
+            = ph_bold_icon(:check_square_offset)
+            .subtasks-block-title= tm(Task, :subtasks)
+          .align-center.text-info.text-small
+            - if task.status_draft? || task.status_cancelled?
+              = "(#{task.subtasks.length})"
+            - else
+              = task.subtask_progress
+
+  - if !task.status_draft? && !task.status_cancelled? 
+    .kanban-task-progress-block
+      .justify-space-between
+        .text-small.title= tgm(:progress)
+        .text-small.progress-percent= "#{task.progress_percent}%"
+      .kanban-task-progress
+        .kanban-task-progress-bar{ style: "width: #{task.progress_percent}%" }
+
+  - if task.status_completed? && subtask
+    .align-end{ style: "white-space: nowrap;" }
+      .text-small.text-muted{ style: "font-weight: 450;" }= "#{tgm(:completed_in)}:"
+      .text-small{ style: "font-weight: 500;" }= compact_duration_from_seconds(task.work_duration)
+      .align-center.justify-end{ style: "margin-top: 5px;" }
+
+  - if !subtask
+    = render partial: '/tasks/deadline_block', locals: { task: task }

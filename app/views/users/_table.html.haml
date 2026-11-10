@@ -1,0 +1,19 @@
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th= tm(User, :id)
+        %th
+        %th= tm(User, :email)
+        %th= tm(User, :last_name)
+        %th= tm(User, :first_name)
+        %th= tm(User, :middle_name)
+        %th= tm(User, :phone)
+        %th= tm(User, :role)
+        %th= tm(User, :banned)
+        %th= tm(User, :last_seen_at)
+        %th{ colspan: 2 }
+
+    %tbody#users-list
+      - users.each do |user|
+        = render partial: '/users/item', locals: { user: user }

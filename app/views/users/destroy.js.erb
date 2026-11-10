@@ -1,0 +1,6 @@
+<% if @destroyed %>
+  $("tr.user-row[data-user-id='<%= @user.id %>']").remove()
+  toastr.success('<%= tm(User, :user_destroyed) %>')
+<% else %>
+  <%= toastr_flash() %>;
+<% end %>

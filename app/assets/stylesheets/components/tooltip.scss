@@ -1,0 +1,20 @@
+.tooltip-custom {
+  position: fixed;
+  z-index: 99999;
+  background: var(--text-color) !important;
+  color: var(--background-color) !important;
+  *{
+    color: var(--background-color) !important;
+  }
+  padding: 4px 8px;
+  border-radius: var(--df-border-radius);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+.tooltip-custom.show {
+  opacity: 1;
+}

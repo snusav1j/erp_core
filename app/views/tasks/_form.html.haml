@@ -1,0 +1,21 @@
+= simple_form_for @task, remote: true, html: { id: 'task-form', novalidate: false } do |f|
+  = f.hidden_field :parent_id
+  .form
+    .row
+      .col-md-12
+        = f.input :task_title, required: false
+
+    - unless @task.parent.present?
+      .row
+        .col-md-6
+          = f.input :priority, as: :select, collection: Task.priority_collection, include_blank: tgm(:select)
+        .col-md-6
+          = f.input :deadline, as: :string, input_html: { class: 'datetime-picker' }
+    %br
+    .row
+      .col-md-12
+        = f.input :description, required: false
+
+    -# .row
+    -#   .col-md-12
+    -#     = f.input :requires_review, as: :boolean, input_html: { class: 'switch' }

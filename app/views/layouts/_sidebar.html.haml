@@ -1,0 +1,48 @@
+#sidebar{ class: current_user.get_sidebar_state ? "hide" : "" }
+  .sidebar-header
+    .user-block
+      .user-info.sidebar-item
+        = link_to user_path(current_user), class: "user-action" do
+          #sidebar-user-image{ data: { user_id: current_user.id } }
+            = user_image(user: current_user)
+
+          .flex-column{ style: 'gap: 1px; width: 100%;' }
+            .user-name.break-all
+              = current_user.shortname
+
+            .user-email.text-small.text-muted.break-all= current_user&.email
+
+        = popup(id: "sidebar-user-controls", position: :right, class_name: 'user-action-btn') do
+          = link_to '#', method: :delete, class: "popup-btn text-default remote-link disabled" do
+            = ph_icon(:gear)
+            = tgm(:settings)
+
+          %button.text-default.theme-switcher.popup-btn{type: "button", onclick: "toggleTheme()"}
+            = ph_icon(:moon, 'theme-label-dark')
+            = ph_icon(:sun, 'theme-label-light')
+            %span.theme-label.theme-label-dark= tgm(:dark_theme)
+            %span.theme-label.theme-label-light= tgm(:light_theme)
+
+          %hr
+          .user-actions
+            -# = link_to "#", class: "user-action", remote: true, data: { tooltip: tgm(:notifications) } do
+            -#   = ph_icon(:notifications)
+
+            = link_to destroy_user_session_path, method: :delete, class: "popup-btn text-danger user-action", data: { disable_with: "#{disable_with_icon}#{tgm(:sign_out)}".html_safe } do
+              = ph_bold_icon(:sign_out)
+              = tgm(:sign_out)
+                  
+  .sidebar-body
+    .sidebar-group
+      - group_class = active_group_class([tasks_path])
+      .sidebar-group-header{ class: group_class }
+        = ts(:tasks)
+      .sidebar-group-body{ class: group_class }= render partial: '/layouts/sidebar_items/tasks'
+
+
+    - if policy(:user).index?
+      .sidebar-group
+        - group_class = active_group_class([users_path, roles_path])
+        .sidebar-group-header{ class: group_class }
+          = ts(:system)
+        .sidebar-group-body{ class: group_class }= render partial: '/layouts/sidebar_items/system'

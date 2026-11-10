@@ -1,0 +1,11 @@
+.flex-row.align-center.version-row.justify-start{ style: "gap: 3px;" }
+  - value_first = Version.display_value(record_class, attribute, values.first)
+  - value_last = Version.display_value(record_class, attribute, values.last)
+  %span{ class: value_first.to_s.length > 25 ? 'break-all' : '', style: "white-space: nowrap;", data: value_first.to_s.length > 25 ? { tooltip: Version.display_value(record_class, attribute, values.first) } : {} }
+    = value_first if value_last.present?
+
+  = ph_icon(:arrow_right, 'extra-sm-g-icon text-muted') if value_last.present? && value_first.present?
+
+  %span{ class: value_last.to_s.length > 25 ? 'break-all' : '', style: "white-space: nowrap;", data: value_last.to_s.length > 25 ? { tooltip: Version.display_value(record_class, attribute, values.last) } : {} }
+    %span{ class: value_last.present? ? '' : 'text-muted' }
+      = value_last.present? ? value_last : tgm(:not_specified)

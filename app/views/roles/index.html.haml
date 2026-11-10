@@ -1,0 +1,20 @@
+.content-box
+  .content-box-header
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:article, 'text-primary')
+          = tm(Role, :title)
+        %span.content-box-header-count.text-muted= @roles.length > 0 ? @roles.length : ''
+      = render_breadcrumbs
+
+    .btn-group
+      = link_to new_modal_roles_path, class: "btn btn-primary", data: { tooltip: tc(:new) }, remote: true do
+        = ph_icon(:plus)
+
+  .content-box-body
+    #roles-table= render partial: '/roles/table', locals: { roles: @roles }
+
+#role-modal-outer

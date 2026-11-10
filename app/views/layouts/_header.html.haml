@@ -1,0 +1,10 @@
+
+.extra-sidebar-controls.show-sidebar
+  .extra-show-sidebar-btn
+    = ph_bold_icon(:list)
+  .logo.flex
+    .app-icon.flex
+      = ph_bold_icon(:cube, 'text-primary ')
+
+  = link_to destroy_user_session_path, class: "btn", style: "margin: 8px 15px;", data: { disable_with: disable_with_icon.html_safe }, method: :delete do
+    = ph_icon(:sign_out)

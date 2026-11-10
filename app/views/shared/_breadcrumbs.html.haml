@@ -1,0 +1,9 @@
+- if breadcrumbs.present?
+  .breadcrumbs
+    - breadcrumbs.each_with_index do |breadcrumb, index|
+      - if index.positive?
+        %span.breadcrumbs-separator= ph_bold_icon(:caret_right)
+      - if breadcrumb[:path].present? && index < breadcrumbs.length - 1
+        = link_to breadcrumb[:title], breadcrumb[:path], class: "breadcrumbs-item"
+      - else
+        %span.breadcrumbs-item.breadcrumbs-current= breadcrumb[:title]

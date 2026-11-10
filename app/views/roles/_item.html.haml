@@ -1,0 +1,31 @@
+%tr.role-row{ data: { role_id: role.id } }
+
+  %td.text-center
+    .text-muted= role.id
+
+  %td= role.name
+
+  %td
+    = link_to role_path(role), class: 'popup-btn text-primary remote-link flex', remote: true, data: { disable_with: disable_with_icon.html_safe, tooltip: tm(Role, :setup_role) } do
+      = ph_bold_icon(:gear_six)
+
+  %td
+    = popup(id: "role-buttons-#{role.id}", position: :right, class_name: 'btn btn-sm-flat btn-default') do
+
+      = link_to role_path(role), class: 'popup-btn text-primary remote-link', remote: true do
+        = ph_bold_icon(:gear_six)
+        = tm(Role, :setup_role)
+
+      = link_to edit_modal_roles_path(id: role.id), class: 'popup-btn text-default remote-link', remote: true do
+        = ph_bold_icon(:pencil)
+        = tgm(:edit)
+
+      = link_to versions_modal_path(model: "Role", id: role.id), class: 'popup-btn text-default', remote: true  do
+        = ph_bold_icon(:clock_counter_clockwise)
+        = tgm(:versions)
+
+      %hr 
+
+      = link_to role_path(role), method: :delete, class: 'popup-btn text-danger', remote: true, data: { confirm: tgm(:are_you_sure), disable_with: "#{disable_with_icon} #{tgm(:destroying)}".html_safe } do
+        = ph_bold_icon(:trash)
+        = tgm(:destroy)

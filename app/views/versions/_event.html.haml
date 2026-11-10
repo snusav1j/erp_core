@@ -1,0 +1,12 @@
+- if version.create? || version.destroy? || version.changeset.length > 1
+  .align-center.flex-row{ style: "gap: 2px;" }
+    = tm(Version, version.event_translation_key)
+    
+    - if version.changeset.length > 1 && !version.create? && !version.destroy?
+      %span.custom-field-badge{ data: { tooltip: tm(Version, :records_changed_length, changed_length: version.changeset.length) } }
+        = ph_icon(:info)
+- else
+  - version.changeset.each_key do |attribute|
+    .flex-row.align-center{ style: "gap: 3px;" }
+      = tm(Version, :"event_#{version.event_name}")
+      %span{ style: "font-weight: 600;" }= version.attribute_name(attribute)

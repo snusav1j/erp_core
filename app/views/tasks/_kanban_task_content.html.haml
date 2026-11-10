@@ -1,0 +1,53 @@
+.kanban-task-header
+  = task_priority(task)
+
+  .align-center
+    - unless task.has_subtasks?
+      - if task.status_new? && is_assignee
+        = link_to start_task_path(task), method: :post, remote: true, class: 'text-primary', data: { tooltip: tm(Task, :start), disable_with: disable_with_icon.html_safe } do
+          = ph_bold_icon(:play)
+
+      - if task.status_in_progress? && is_assignee
+        = link_to complete_task_path(task), method: :post, remote: true, class: 'text-success', data: { tooltip: tm(Task, :complete), disable_with: disable_with_icon.html_safe } do
+          = ph_bold_icon(:check)
+
+      - if task.status_completed? && is_author
+        = link_to return_to_work_task_path(task), method: :post, remote: true, class: 'text-warning', data: { tooltip: tm(Task, :return_to_work), disable_with: disable_with_icon.html_safe } do
+          = ph_bold_icon(:arrow_u_up_left)
+
+    - if is_author && (task.status_draft? || task.status_new? || task.status_in_progress? || task.status_cancelled? || task.status_completed?)
+      = popup(id: "task-buttons-#{task.id}", position: :right, class_name: 'flex text-default task-popup-btn') do
+        - if task.status_draft?
+          = link_to edit_modal_tasks_path(id: task.id), class: 'popup-btn text-default', remote: true do
+            = ph_bold_icon(:pencil)
+            = tm(Task, :edit)
+
+          = link_to new_modal_tasks_path(parent_id: task.id), class: 'popup-btn text-default', remote: true do
+            = ph_bold_icon(:plus)
+            = tm(Task, :new_subtask)
+
+          = link_to publish_task_path(task), method: :post, remote: true, class: 'popup-btn text-default', data: { disable_with: "#{disable_with_icon} #{tm(Task, :publishing)}".html_safe } do
+            = ph_bold_icon(:paper_plane_tilt, 'text-primary')
+            = tm(Task, :publish)
+
+        - if task.status_new?
+          = link_to return_to_draft_task_path(task), method: :post, remote: true, class: 'popup-btn text-default', data: { disable_with: "#{disable_with_icon} #{tm(Task, :returning_to_draft)}".html_safe } do
+            = ph_bold_icon(:file_dashed, 'text-default')
+            = tm(Task, :return_to_draft)
+
+        - if task.status_new? || task.status_in_progress?
+          = link_to cancel_task_path(task), method: :post, remote: true, class: 'popup-btn text-default', data: { confirm: tgm(:are_you_sure), disable_with: "#{disable_with_icon} #{tm(Task, :cancelling)}".html_safe } do
+            = ph_bold_icon(:prohibit, 'text-danger')
+            = tm(Task, :cancel)
+
+        - if task.status_cancelled? || task.status_completed?
+          = link_to repeat_task_path(task), method: :post, remote: true, class: 'popup-btn text-default', data: { disable_with: "#{disable_with_icon} #{tm(Task, :repeating)}".html_safe } do
+            = ph_bold_icon(:repeat, 'text-primary')
+            = tm(Task, :repeat)
+
+        - if task.status_draft? || task.status_new? || task.status_in_progress? || task.status_cancelled? || task.status_completed?
+          %hr
+
+        = link_to task_path(task), method: :delete, remote: true, class: 'popup-btn text-danger', data: { confirm: tgm(:are_you_sure), disable_with: "#{disable_with_icon} #{tm(Task, :destroying)}".html_safe } do
+          = ph_bold_icon(:trash)
+          = tm(Task, :destroy)

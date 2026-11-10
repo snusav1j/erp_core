@@ -1,0 +1,23 @@
+.modal.fade#task-modal{ style: 'z-index: 11111;' }
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %h4.modal-title
+          = title
+          - if @task.parent.present?
+            .text-small.text-muted.align-center
+              = "#{tgm(:for_task).downcase}:"
+              = @task.parent.task_title
+              = task_priority_icon(@task)
+            
+
+
+        %button.close{ "aria-label" => "Close", "data-dismiss" => "modal", "type" => "button" }
+          %span{"aria-hidden" => "true"}= ph_icon('x')
+
+      .modal-body
+        = render partial: '/tasks/form'
+
+      .modal-footer
+        %button.btn.btn-default.pull-left{"data-dismiss" => "modal", :type => "button"}= tgm(:cancel)
+        %button.btn.btn-primary.pull-right{:type => "submit", form: 'task-form', data: { disable_with: "#{tgm(:saving)} #{disable_with_icon}".html_safe }}= tgm(:save)

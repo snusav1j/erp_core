@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  #error_explanation{"data-turbo-temporary" => ""}
+    %ul
+      - resource.errors.messages.each_value do |messages|
+        - messages.each do |message|
+          %li.text-danger.text-small= message

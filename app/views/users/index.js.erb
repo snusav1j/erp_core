@@ -1,0 +1,6 @@
+$('#users-table').html('<%= j render partial: "/users/table", locals: { users: @users } %>');
+
+box_header = $(".content-box-header[data-entity='<%= @entity %>']")
+box_header.find('.content-box-header-loader').hide()
+box_header.find('.content-box-header-length').html('<%= @users.length %>')
+box_header.find('.content-box-header-length').show()

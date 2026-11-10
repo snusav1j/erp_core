@@ -1,0 +1,66 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 122,
+      "fingerprint": "98b26f60d776fd41ee6f088c833725145be9aac2d7c5b33780241c273622db42",
+      "check_name": "EOLRails",
+      "message": "Support for Rails 8.0.5 ends on 2026-10-07",
+      "file": "Gemfile.lock",
+      "line": 321,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "Medium",
+      "cwe_id": [
+        1104
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "e83fb7a0f2ce33f2f0c2d7f5ce33038a61c0768dad514ba3a6362eee15b94d80",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/application_record.rb",
+      "line": 332,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ApplicationRecord",
+        "method": "ApplicationRecord.smart_search"
+      },
+      "user_input": "Array(column).map(&:to_s).map do\n self.connection.quote_column_name(name)\n end.map do\n normalized_column = self.normalized_search_column(self.connection.quote_table_name(self.table_name), quoted_column)\ncompact_column = \"REPLACE(#{self.normalized_search_column(self.connection.quote_table_name(self.table_name), quoted_column)}, ' ', '')\"\n\"#{\"REPLACE(#{self.normalized_search_column(self.connection.quote_table_name(self.table_name), quoted_column)}, ' ', '')\"} LIKE :compact_query\"\n end.join(\" OR \")",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 121,
+      "fingerprint": "edf687f759ec9765bd5db185dbc615c80af77d6e7e19386fc42934e7a80307af",
+      "check_name": "EOLRuby",
+      "message": "Support for Ruby 3.2.6 ended on 2026-03-31",
+      "file": ".ruby-version",
+      "line": 1,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        1104
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "8.0.5"
+}

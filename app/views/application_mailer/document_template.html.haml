@@ -1,0 +1,12 @@
+.document-template-preview
+
+  .document-template-preview__body
+    - structure = @version.document_template_structure
+
+    - case @version.format.to_s
+    - when 'pdf'
+      = render partial: 'document_templates/preview_templates/preview_pdf', locals: { structure: structure, sample: @sample_record }
+    - when 'xlsx'
+      = render partial: 'document_templates/preview_templates/preview_xlsx', locals: { structure: structure, sample: @sample_record }
+    - when 'csv'
+      = render partial: 'document_templates/preview_templates/preview_csv', locals: { structure: structure, sample: @sample_record }

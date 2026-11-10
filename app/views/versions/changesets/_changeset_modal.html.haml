@@ -1,0 +1,14 @@
+.modal.fade#versions-changeset-modal
+  .modal-dialog.modal-auto
+    .modal-content
+      .modal-header
+        %h4.modal-title= tm(Version, :changed_details)
+
+        %button.close{ "aria-label" => "Close", "data-dismiss" => "modal", "type" => "button" }
+          %span{ "aria-hidden" => "true" }= ph_icon('x')
+
+      .modal-body
+        = render partial: '/versions/changesets/changeset_table', locals: { version: version }
+      .modal-footer
+        %button.btn.btn-default.pull-right{ "data-dismiss" => "modal", type: "button" }
+          = tgm(:close)

@@ -1,0 +1,27 @@
+.content-box
+  .content-box-header{ data: { entity: @entity } }
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:users, 'text-primary')
+          = tm(User, :title)
+        %span.content-box-header-count
+          .content-box-header-loader.text-muted= disable_with_icon.html_safe
+          .content-box-header-length.text-muted= @users ? (@users.length > 0 ? @users.length : '')  : ''
+      = render_breadcrumbs
+
+    .btn-group
+      = link_to new_modal_users_path, class: "btn btn-primary", data: { tooltip: tc(:new) }, remote: true do
+        = ph_icon(:plus)
+
+  .content-box-body
+    - if @visible_columns
+      #filter-block{ data: { entity: @entity } }
+        = render partial: '/table_settings/table_filters', locals: { columns: @visible_columns, entity: @entity }
+
+    #users-table= render partial: '/users/table', locals: { users: @users }
+
+
+#user-modal-outer

@@ -1,0 +1,7 @@
+<% if @updated %>
+  $("tr.user-row[data-user-id='<%= @user.id %>']").replaceWith("<%= j render partial: '/users/item', locals: { user: @user } %>");
+  $('#user-modal').modal('hide');
+  toastr.success('<%= tm(User, :user_updated) %>')
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

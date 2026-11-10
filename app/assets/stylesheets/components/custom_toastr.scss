@@ -1,0 +1,212 @@
+.custom-toastr-block .custom-toastr-message-flex {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 13px !important;
+  padding: 6px 30px 6px 6px;
+}
+
+.custom-toastr-block {
+  color: var(--text-color);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--md-border-radius);
+  align-items: start;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  background: color-mix(in srgb, var(--surface-color) 25%, var(--background-color)) !important;
+  font-weight: 500;
+  font-size: 13px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-toastr-details {
+  padding: 10px;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  background: color-mix(in srgb, var(--surface-color) 50%, var(--background-color)) !important;
+  *{
+    font-size: 12px;
+  }
+}
+
+.custom-toastr-icon {
+  min-width: 25px;
+  // background: var(--border-color-light);
+  border-radius: var(--df-border-radius);
+  // border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+  .ph, .ph-duotone, .ph-bold {
+    font-size: 22px;
+  }
+}
+
+.custom-toastr-primary {
+  .custom-toastr-icon {
+    .ph, .ph-duotone, .ph-bold {
+      color: var(--primary-color);
+    }
+  }
+
+  .close-icon, .progress-pause-timer {
+    color: var(--primary-color);
+  }
+}
+
+.custom-toastr-danger {
+  .custom-toastr-icon {
+    .ph, .ph-duotone, .ph-bold {
+      color: var(--danger-color);
+    }
+  }
+
+  .close-icon, .progress-pause-timer {
+    color: var(--danger-color);
+  }
+}
+
+.custom-toastr-warning {
+  .custom-toastr-icon {
+    .ph, .ph-duotone, .ph-bold {
+      color: var(--warning-color);
+    }
+  }
+
+  .close-icon, .progress-pause-timer {
+    color: var(--warning-color);
+  }
+}
+
+.custom-toastr-success {
+  .custom-toastr-icon {
+    .ph, .ph-duotone, .ph-bold {
+      color: var(--success-color);
+    }
+  }
+
+  .close-icon, .progress-pause-timer {
+    color: var(--success-color);
+  }
+}
+
+.custom-toastr-container {
+  position: fixed;
+  top: -20px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-40px);
+  transition: .3s ease;
+  opacity: 0;
+  z-index: 1000000;
+}
+
+.show-toastr-container {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+.custom-toastr-container,
+.show-toastr-container {
+  z-index: 1000000;
+}
+
+.custom-toastr-block .custom-toastr-message-block {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.custom-toastr-progress {
+  position: absolute;
+  top: 0;
+  left: 7px;
+  width: calc(100% - 14px);
+  height: 1.5px;
+  background: var(--primary-color);
+  transform-origin: left;
+  transform: scaleX(1);
+  z-index: 1111;
+  border-radius: 0 0 10px 10px;
+}
+
+.custom-toastr-progress.active {
+  transform: scaleX(0);
+  transition: transform var(--toastr-life-time) linear;
+}
+
+.custom-toastr-success .custom-toastr-progress {
+  background: var(--success-color);
+}
+
+.custom-toastr-danger .custom-toastr-progress {
+  background: var(--danger-color);
+}
+
+.custom-toastr-warning .custom-toastr-progress {
+  background: var(--warning-color);
+}
+
+.custom-toastr-primary .custom-toastr-progress {
+  background: var(--primary-color);
+}
+
+.custom-toastr-success .toastr-color {
+  color: var(--success-color);
+}
+
+.custom-toastr-danger .toastr-color {
+  color: var(--danger-color);
+}
+
+.custom-toastr-warning .toastr-color {
+  color: var(--warning-color);
+}
+
+.custom-toastr-primary .toastr-color {
+  color: var(--primary-color);
+}
+
+.custom-toastr-success .toastr-bg {
+  background: var(--success-color);
+}
+
+.custom-toastr-danger .toastr-bg {
+  background: var(--danger-color);
+}
+
+.custom-toastr-warning .toastr-bg {
+  background: var(--warning-color);
+}
+
+.custom-toastr-primary .toastr-bg {
+  background: var(--primary-color);
+}
+
+.close-icon,
+.progress-pause-timer {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) scale(0.1);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+.close-icon.show,
+.progress-pause-timer.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+}

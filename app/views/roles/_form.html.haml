@@ -1,0 +1,5 @@
+= simple_form_for @role, remote: true, html: { id: 'role-form', novalidate: false } do |f|
+  .form
+    .row
+      .col-md-12
+        = f.input :name, required: true, placeholder: tm(Role, :placeholder)

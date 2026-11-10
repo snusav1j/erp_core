@@ -1,0 +1,12 @@
+#toastr-template.custom-toastr-container{ data: { success: tgm(:success), danger: tgm(:error), warning: tgm(:warning), primary: tgm(:primary), default_description: tgm(:data_updated) } }
+  .custom-toastr-progress
+  .custom-toastr-block
+    .custom-toastr-message-block
+      .custom-toastr-message-flex
+        .custom-toastr-icon
+        .custom-toastr-content
+          .custom-toastr-message
+          .custom-toastr-description.text-muted.text-small
+      = ph_fill_icon(:pause_circle, 'progress-pause-timer')
+      = ph_fill_icon(:x_circle, 'close-icon')
+    .custom-toastr-details

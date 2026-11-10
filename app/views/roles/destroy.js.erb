@@ -1,0 +1,7 @@
+<% if @destroyed %>
+  $("tr.role-row[data-role-id='<%= @role.id %>']").remove()
+  toastr.warning({description: "<%= tm(Role, :role_destroyed) %>", life_time: 2000})
+
+<% else %>
+  <%= toastr_flash() %>;
+<% end %>

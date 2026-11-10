@@ -1,0 +1,8 @@
+.popup-btn{ data: { popup_id: id, popup_position: position, tooltip: tooltip }, class: class_name }
+  - if title.present?
+    .justify-space-between.align-center
+      = title.html_safe
+      = ph_icon_by_style(icon, icon_style)
+  - else
+    = ph_icon_by_style(icon, icon_style)
+= render 'shared/popup', id: id, class_name: 'popup-buttons', body: content

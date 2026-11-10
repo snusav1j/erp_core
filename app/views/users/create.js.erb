@@ -1,0 +1,8 @@
+<% if @created %>
+  $("#users-list").prepend("<%= j render partial: '/users/item', locals: { user: @user } %>");
+  $('#user-modal').modal('hide');
+  toastr.success('<%= tm(User, :user_created) %>')
+<% else %>
+  <%= toastr_flash() %>
+<% end %>
+

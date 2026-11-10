@@ -1,0 +1,13 @@
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th= tm(Version, :created_at)
+        -# %th= tm(Version, :item_type)
+        %th= tm(Version, :event)
+        %th= tm(Version, :changes)
+        %th= tm(Version, :whodunnit)
+
+    %tbody#versions-list
+      - versions.each do |version|
+        = render "/versions/item", version: version

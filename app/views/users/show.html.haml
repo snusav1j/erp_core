@@ -1,0 +1,30 @@
+.content-box
+  .content-box-header{ data: { entity: @entity } }
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:user, 'text-primary')
+          = tm(User, :title_single)
+          %span.text-muted= "##{@user.id}"
+      = render_breadcrumbs
+    
+    .btn-group
+      = link_to edit_user_path(@user), class: "btn btn-default remote-link", data: { tooltip: tm(User, :edit) } do
+        = ph_bold_icon(:pencil_simple)
+
+  .content-box-body
+
+
+    .avatar-upload
+      .avatar-edit
+        %input#imageUpload{ type: "file", accept: ".png, .jpg, .jpeg", data: { user_id: @user.id } }
+        %label{ for: "imageUpload", data: { tooltip: tgm(:edit) } }= ph_icon(:pencil)
+
+      .avatar-delete{ style: "display: #{@user.user_image.attached? ? 'block' : 'none'};" }
+        = link_to destroy_image_user_path(@user), method: :delete, remote: true, class: "btn btn-danger", data: { disable_with: disable_with_icon, tooltip: tgm(:destroy) } do
+          = ph_icon(:trash)
+
+      #user-image-preview.avatar-preview
+        = user_image(user: @user)

@@ -1,0 +1,4 @@
+$('#user-modal-outer').html("<%= j render partial: '/users/user_modal', locals: { title: tc(:edit) } %>");
+
+$('.datepicker').datePicker()
+$('#user-modal').modal('show');

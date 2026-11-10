@@ -1,0 +1,16 @@
+%tr
+  - version.changeset.each do |attribute, values|
+    - if attribute != 'encrypted_password'
+      %td{ class: attribute.to_sym == :id ? 'text-center text-muted' : '' }
+        - old_value, new_value = values
+
+        - if version.create?
+          = Version.display_value(version.item_type.constantize, attribute, new_value)
+
+        - else
+          .flex-row.align-center.version-row.justify-start{ style: "gap: 3px;" }
+    
+            = Version.display_value(version.item_type.constantize, attribute, old_value) if new_value.present?
+            = ph_icon(:arrow_right, 'text-muted') if new_value.present?
+            %span{ class: new_value.present? ? '' : 'text-muted' }
+              = new_value.present? ? Version.display_value(version.item_type.constantize, attribute, new_value) : tgm(:not_specified)

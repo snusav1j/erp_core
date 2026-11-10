@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" }
+    %meta{ name: "mobile-web-app-capable", content: "yes" }
+    %meta{ name: "apple-mobile-web-app-capable", content: "yes" }
+    %meta{name: "theme-color", content: "#fbfbfb", id: "theme-color-meta"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = action_cable_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+
+    = render partial: '/layouts/header_script_tags'
+
+    = javascript_include_tag 'application'
+    
+    = render partial: '/layouts/header_link_tags'
+
+    %link{ rel: "manifest", href: "/manifest.json" }
+    %link{ rel: "icon", href: "/icons/cube-bold.svg", type: "image/png" }
+
+    %title= content_for(:title) || tgm(:app_title)
+  %body
+    #wrap
+      - if current_user && !request.path.start_with?('/document_templates/')
+        = render partial: '/layouts/sidebar'
+      #content
+        - if current_user
+          .content-header
+            = render partial: '/layouts/header'
+        .content-body
+          = yield
+    #page-footer
+
+= render partial: '/shared/toastr'
+= render partial: '/layouts/modal_templates'
+
+.overlay
+
+:javascript
+  document.addEventListener("DOMContentLoaded", function() {
+    #{toastr_flash}
+  });

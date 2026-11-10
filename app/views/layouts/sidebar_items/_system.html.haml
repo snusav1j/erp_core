@@ -1,0 +1,13 @@
+.sidebar-item{ class: active_item_class(users_path) }
+  = link_to users_path do
+    .flex-row.align-center
+      = ph_duotone_icon(:users, 'sidebar-item-icon')
+      = disable_with_icon('sidebar-item-loader').html_safe
+      .sidebar-title= tm(User, :title)
+
+.sidebar-item{ class: active_item_class(roles_path) }
+  = link_to roles_path do
+    .flex-row.align-center
+      = ph_duotone_icon(:diamond, 'sidebar-item-icon')
+      = disable_with_icon('sidebar-item-loader').html_safe
+      .sidebar-title= tm(Role, :title)

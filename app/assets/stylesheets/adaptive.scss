@@ -1,0 +1,131 @@
+@media screen and (max-width: 767px) {
+  #devise-form {
+    margin: 10% 15px 0 15px !important;
+    width: unset !important;
+  }
+
+  // .custom-toastr-icon {
+  //   .ph, .ph-duotone, .ph-bold {
+  //     font-size: 18px;
+  //   }
+  // }
+  .content-box-body{
+    padding: 10px;
+  }
+  .hide-on-mobile{
+    display: none;
+  }
+  #sidebar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 280px;
+    height: 100dvh;
+    margin: 0;
+    transform: translateX(-100%);
+    transition: transform .2s ease;
+    background: var(--surface-color);
+    border: unset;
+    border-right: 1px solid var(--border-color);
+    border-radius: unset;
+    overflow: hidden;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  #sidebar .sidebar-body {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .extra-sidebar-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #sidebar.show {
+    transform: translateX(0);
+  }
+
+  #sidebar .sidebar-header {
+    flex-shrink: 0;
+  }
+
+  #sidebar .sidebar-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #sidebar .sidebar-footer {
+    background: var(--surface-color);
+    flex-shrink: 0;
+  }
+
+  .source-expenses-block, .source-attachments-block{
+    width: 100%;
+    table{
+      width: 100%;
+    }
+  }
+  .content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    background: color-mix(in srgb, var(--surface-color) 45%, var(--background-color)) !important;
+    border-bottom: 1px solid var(--border-color-light);
+    flex-shrink: 0;
+  }
+  // .extra-sidebar-controls{
+  //   padding: 5px 15px;
+  // }
+  .extra-show-sidebar-btn{
+    padding: 8px 15px;
+  }
+  .extra-show-sidebar{
+
+  }
+  .content-box {
+    height: calc(100vh - 93px);
+    min-height: 0;
+  }
+
+  .sidebar-header {
+    border-radius: 0;
+    border: unset;
+    border-bottom: 1px solid var(--border-color-light);
+    background: var(--background-color);
+  }
+
+  .sidebar-footer {
+    border-radius: 0;
+    border: unset;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 10px;
+  }
+
+  #edit_column_position {
+    display: none;
+  }
+  .purchase-blocks{
+    flex-direction: column;
+  }
+  .app-icon{
+    .ph{
+      font-size: 30px;
+    }
+    padding: 0;
+  }
+  .per-page-select-block{
+    label{display: none;}
+  }
+}

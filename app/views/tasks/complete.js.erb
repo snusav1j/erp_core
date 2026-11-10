@@ -1,0 +1,31 @@
+<% if @completed %>
+  <% tasks_count = current_user.active_tasks_count %>
+
+  <% if tasks_count > 0 %>
+    $('.current_user_active_tasks_count').html('<%= tasks_count %>')
+    $('.current_user_active_tasks_count').show()
+  <% else %>
+    $('.current_user_active_tasks_count').hide()
+  <% end %>
+
+  $("#tasks-table").html("<%= j render partial: '/tasks/kanban', locals: { tasks: @tasks_by_status } %>");
+  
+  $(".kanban-task[data-task-id='<%= @task&.id %>'] .progress-percent").createConfetti()
+
+  <% if @task.parent.present? %>
+    $("#subtasks-table").html("<%= j render partial: '/tasks/subtasks_table', locals: { task: @task.parent, subtasks: @task.parent.get_subtasks } %>");
+    $("#subtask-modal .modal-title .text-small").html("(<%= @task.parent.subtasks_count %>)");
+
+    <% if @task.parent.progress_percent.to_i == 100 %>
+      $(".kanban-task[data-task-id='<%= @task.parent.id %>'] .progress-percent").createConfetti()
+    <% end %>
+
+    console.log('<%= @task.parent.progress_percent.to_i == 0 %>')
+    console.log('<%= @task.parent.progress_percent %>')
+  <% end %>
+
+  toastr.success({description: "<%= tm(Task, :task_completed) %>", life_time: 2000})
+
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

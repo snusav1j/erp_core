@@ -1,0 +1,12 @@
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th.text-center
+          .text-muted= tm(Role, :id)
+        %th= tm(Role, :name)
+        %th{ colspan: 2 }
+
+    %tbody#roles-list
+      - roles.each do |role|
+        = render partial: '/roles/item', locals: { role: role }

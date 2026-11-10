@@ -1,0 +1,14 @@
+.modal.fade#subtask-modal
+  .modal-dialog.modal-auto{ style: "min-width: 360px; max-width: 360px;" }
+    .modal-content
+      .modal-header
+        %h4.modal-title.align-center
+          .text-muted= tm(Task, :subtasks)
+          .text-small= "(#{@task.subtasks_count})"
+        %button.close{ "aria-label" => "Close", "data-dismiss" => "modal", "type" => "button" }
+          %span{"aria-hidden" => "true"}= ph_icon('x')
+      .modal-body
+        #subtasks-table
+          = render partial: '/tasks/subtasks_table', locals: { task: @task, subtasks: @subtasks }
+      .modal-footer
+        %button.btn.btn-default.pull-left{"data-dismiss" => "modal", :type => "button"}= tgm(:close)

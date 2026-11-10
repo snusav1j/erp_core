@@ -1,0 +1,48 @@
+= simple_form_for @user, remote: true, html: { id: 'user-form', novalidate: false } do |f|
+  .form
+    .row
+      .col-md-12
+        = f.input :email, required: true
+
+    .row
+      .col-md-12
+        = f.input :role_id, collection: Role.all.map { |role| [role.name, role.id] }, include_blank: tgm(:select), required: true
+
+    .row
+      .col-md-4
+        = f.input :last_name, required: true
+
+      .col-md-4
+        = f.input :first_name, required: true
+
+      .col-md-4
+        = f.input :middle_name
+
+    .row
+      .col-md-6
+        = f.input :phone
+
+      .col-md-6
+        = f.input :birthday, as: :string, input_html: { class: 'date-picker' }
+
+    .row
+      .col-md-6
+        = f.input :telegram
+
+      .col-md-6
+        = f.input :telegram_chat_id
+
+    - unless @user.persisted?
+      .row
+        .col-md-12
+          = f.input :password, required: false
+
+      .row
+        .col-md-12
+          = f.input :password_confirmation, required: false
+
+    .row
+      .col-md-6
+
+      .col-md-6.justify-end.flex.align-center
+        = f.input :banned, as: :boolean, input_html: { class: 'switch' }

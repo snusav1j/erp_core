@@ -1,0 +1,31 @@
+#devise-form
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+
+    .authorization-header
+      .flex-row.align-center.justify-space-between
+        %h2= tm(User, :change_password)
+        = link_to tm(User, :login), new_session_path(resource_name), class: 'remote-link btn-sm btn-default'
+
+    .authorization-body
+      = f.hidden_field :reset_password_token
+
+      .row
+        .col-md-12
+          = f.label :password
+          = f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: tm(User, :password), required: true
+
+      .row
+        .col-md-12
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: tm(User, :password_confirmation), required: true
+          = render "devise/shared/error_messages", resource: resource
+
+      -# - if @minimum_password_length
+      -#   .row
+      -#     .col-md-12
+      -#       %em= "#{@minimum_password_length} #{tm(User, :characters_minimum)}"
+
+    .authorization-footer
+      .actions
+        = button_tag type: :submit, class: 'btn btn-primary', style: "width: 100%; display: flex; justify-content: center; align-items: center;", data: { disable_with: disable_with_icon.html_safe } do
+          = tm(User, :change_password)

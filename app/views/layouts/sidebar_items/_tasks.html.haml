@@ -1,0 +1,10 @@
+.sidebar-item{ class: active_item_class(tasks_path) }
+  = link_to tasks_path do
+    .flex-row.align-center
+      = ph_duotone_icon(:scroll, 'sidebar-item-icon')
+      = disable_with_icon('sidebar-item-loader').html_safe
+      .sidebar-title
+        - tasks_count = current_user.active_tasks_count
+        .align-center
+          = tm(Task, :title)
+          .color-badge-danger.badge.current_user_active_tasks_count{ style: tasks_count > 0 ? 'display: flex;' : 'display: none;' }= tasks_count

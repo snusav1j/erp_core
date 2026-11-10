@@ -1,0 +1,19 @@
+<% if @cancelled %>
+  <% tasks_count = current_user.active_tasks_count %>
+
+  <% if tasks_count > 0 %>
+    $('.current_user_active_tasks_count').html('<%= tasks_count %>')
+    $('.current_user_active_tasks_count').show()
+  <% else %>
+    $('.current_user_active_tasks_count').hide()
+  <% end %>
+
+  $("#tasks-table").html("<%= j render partial: '/tasks/kanban', locals: { tasks: @tasks_by_status } %>");
+  <% if @task.parent.present? %>
+    $("#subtasks-table").html("<%= j @task.parent.subtasks.order(created_at: :asc).map { |subtask| render(partial: '/tasks/kanban_task', locals: { task: subtask, subtask: true }) }.join.html_safe %>");
+    $("#subtask-modal .modal-title .text-muted").html("<%= @task.parent.completed_subtasks_count %>/<%= @task.parent.subtasks_count %>");
+  <% end %>
+  toastr.warning({description: "<%= tm(Task, :task_cancelled) %>", life_time: 2000})
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: snusavij
+  password: 6310
+  host: localhost
+
+development:
+  <<: *default
+  database: erpcore_development
+
+test:
+  <<: *default
+  database: erpcore_test
+
+production:
+  primary:
+    <<: *default
+    database: erpcore
+    migrations_paths: db/migrate
+
+  queue:
+    <<: *default
+    database: erpcore_queue
+    migrations_paths: db/queue_migrate
+
+  cache:
+    <<: *default
+    database: erpcore_cache
+    migrations_paths: db/cache_migrate

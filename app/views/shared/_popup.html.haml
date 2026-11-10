@@ -1,0 +1,18 @@
+- header = local_assigns[:header]
+- body = local_assigns[:body]
+- footer = local_assigns[:footer]
+- class_name = local_assigns[:class_name]
+
+.popup{ id: id, class: class_name, data: { popup: true } }
+  .popup-overlay
+  .popup-container
+    - if header.present?
+      .popup-header
+        = header
+
+    .popup-body
+      = body
+
+    - if footer.present?
+      .popup-footer
+        = footer

@@ -1,0 +1,2 @@
+- if !subtask
+ = render partial: '/tasks/kanban_task_content', locals: { task: task, subtask: subtask, is_author: is_author, is_assignee: is_assignee }

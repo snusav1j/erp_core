@@ -1,0 +1,453 @@
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  box-shadow: none;
+  border-radius: 0;
+  user-select: none;
+}
+
+.btn {
+  width: fit-content;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+  user-select: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+  }
+}
+
+.btn-md {
+  padding: 8px;
+  border-radius: var(--df-border-radius);
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+
+  .ph, .ph-duotone, .ph-bold, .ph-fill {
+    font-size: 14px;
+  }
+}
+
+.btn-sm {
+  padding: 4px;
+  border-radius: var(--df-border-radius);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+
+  .ph, .ph-duotone, .ph-bold, .ph-fill {
+  }
+}
+
+.btn-sm-flat {
+  padding: 1px 4px !important;
+  border-radius: var(--df-border-radius);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+
+  .ph, .ph-duotone, .ph-bold, .ph-fill {
+  }
+}
+
+.btn {
+  .ph {
+    font-size: 16px;
+  }
+}
+
+.btn-df {
+  padding: 6px;
+  font-size: 13px;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.btn-primary {
+  color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--primary-color) 12%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 12%, transparent) !important;
+
+  .item-count {
+    color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--primary-color) 18%, var(--background-color));
+    border: 1px solid color-mix(in srgb, var(--primary-color) 34%, var(--border-color));
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+  }
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--primary-color) 18%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--primary-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--primary-color) 25%, var(--background-color));
+    border-color: color-mix(in srgb, var(--primary-color) 41%, var(--border-color));
+  }
+}
+
+.btn-primary:active {
+  background: color-mix(in srgb, var(--primary-color) 24%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--primary-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--primary-color) 32%, var(--background-color));
+  }
+}
+
+.btn-success {
+  color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--success-color) 12%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--success-color) 12%, transparent) !important;
+
+  .item-count {
+    color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--success-color) 18%, var(--background-color));
+    border: 1px solid color-mix(in srgb, var(--success-color) 34%, var(--border-color)) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+  }
+}
+
+.btn-success:hover {
+  background: color-mix(in srgb, var(--success-color) 18%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--success-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--success-color) 25%, var(--background-color)) !important;
+    border-color: color-mix(in srgb, var(--success-color) 41%, var(--border-color)) !important;
+  }
+}
+
+.btn-success:active {
+  background: color-mix(in srgb, var(--success-color) 24%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--success-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--success-color) 32%, var(--background-color)) !important;
+  }
+}
+
+.btn-warning {
+  color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--warning-color) 12%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--warning-color) 12%, transparent) !important;
+
+  .item-count {
+    color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--warning-color) 18%, var(--background-color)) !important;
+    border: 1px solid color-mix(in srgb, var(--warning-color) 34%, var(--border-color)) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+  }
+}
+
+.btn-warning:hover {
+  background: color-mix(in srgb, var(--warning-color) 18%, var(--background-color));
+  border-color: color-mix(in srgb, var(--warning-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--warning-color) 25%, var(--background-color)) !important;
+    border-color: color-mix(in srgb, var(--warning-color) 41%, var(--border-color)) !important;
+  }
+}
+
+.btn-warning:active {
+  background: color-mix(in srgb, var(--warning-color) 24%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--warning-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--warning-color) 32%, var(--background-color)) !important;
+  }
+}
+
+.btn-danger {
+  color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--danger-color) 12%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--danger-color) 12%, transparent) !important;
+
+  .item-count {
+    color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--danger-color) 18%, var(--background-color)) !important;
+    border: 1px solid color-mix(in srgb, var(--danger-color) 34%, var(--border-color)) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+  }
+}
+
+.btn-danger:hover {
+  background: color-mix(in srgb, var(--danger-color) 18%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--danger-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--danger-color) 25%, var(--background-color)) !important;
+    border-color: color-mix(in srgb, var(--danger-color) 41%, var(--border-color)) !important;
+  }
+}
+
+.btn-danger:active {
+  background: color-mix(in srgb, var(--danger-color) 24%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--danger-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--danger-color) 32%, var(--background-color)) !important;
+  }
+}
+
+.btn-info {
+  color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--info-color) 12%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--info-color) 12%, transparent) !important;
+
+  .item-count {
+    color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--info-color) 18%, var(--background-color)) !important;
+    border: 1px solid color-mix(in srgb, var(--info-color) 34%, var(--border-color)) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+  }
+}
+
+.btn-info:hover {
+  background: color-mix(in srgb, var(--info-color) 18%, var(--background-color));
+  border-color: color-mix(in srgb, var(--info-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--info-color) 25%, var(--background-color));
+    border-color: color-mix(in srgb, var(--info-color) 41%, var(--border-color));
+  }
+}
+
+.btn-info:active {
+  background: color-mix(in srgb, var(--info-color) 24%, var(--background-color));
+  border-color: color-mix(in srgb, var(--info-color) 12%, transparent) !important;
+
+  .item-count {
+    background: color-mix(in srgb, var(--info-color) 32%, var(--background-color));
+  }
+}
+
+.btn-default {
+  color: color-mix(in srgb, var(--text-color) 85%, var(--surface-color)) !important;
+  background: color-mix(in srgb, var(--border-color) 25%, var(--background-color)) !important;
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent) !important;
+
+  .item-count {
+    color: inherit !important;
+    background: color-mix(in srgb, var(--border-color) 20%, var(--surface-color)) !important;
+    border: 1px solid color-mix(in srgb, var(--border-color) 75%, var(--surface-color)) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .ph-fill,
+  .fa,
+  .g-icon {
+    color: inherit !important;
+  }
+}
+
+.btn-default:hover {
+  background: color-mix(in srgb, var(--border-color) 25%, var(--background-color)) !important;
+  border-color: color-mix(in srgb, var(--border-color) 12%, transparent) !important;
+}
+
+.btn-default:active {
+  background: color-mix(in srgb, var(--border-color) 30%, var(--border-color)) !important;
+  border-color: color-mix(in srgb, var(--border-color) 12%, transparent) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+
+  * {
+    color: var(--primary-color) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--primary-color) !important;
+  }
+}
+
+.text-success {
+  color: var(--success-color) !important;
+
+  * {
+    color: var(--success-color) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--success-color) !important;
+  }
+}
+
+.text-warning {
+  color: var(--warning-color) !important;
+
+  * {
+    color: var(--warning-color) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--warning-color) !important;
+  }
+}
+
+.text-danger {
+  color: var(--danger-color) !important;
+
+  * {
+    color: var(--danger-color) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--danger-color) !important;
+  }
+}
+
+.text-info {
+  color: var(--info-color) !important;
+
+  * {
+    color: var(--info-color) !important;
+  }
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--info-color) !important;
+  }
+}
+
+.text-muted {
+  color: var(--text-color-muted) !important;
+
+  .ph, .ph-duotone,
+  .ph-bold,
+  .fa,
+  .g-icon {
+    color: var(--text-color-muted);
+  }
+}
+
+.btn-sm {
+  .item-count {
+    left: 15px;
+  }
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.bg-warning {
+  background-color: var(--warning-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--danger-color) !important;
+}
+
+.bg-info {
+  background-color: var(--info-color) !important;
+}
+
+button {
+  background: unset;
+  background-color: unset;
+}
+
+.close {
+  cursor: pointer;
+  padding: 3px;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--df-border-radius);
+  border: 1px solid transparent;
+  background: var(--surface-color-hover);
+  border: 1px solid var(--border-color);
+  transition: .2s ease;
+}
+
+.close:hover {
+  background: var(--surface-color-active);
+}

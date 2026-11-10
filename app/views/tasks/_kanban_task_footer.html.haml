@@ -1,0 +1,20 @@
+.kanban-task-footer
+  - unless subtask
+    .align-center
+      - if assignees.present?
+        .kanban-task-assignees
+          - assignees.first(5).each do |user|
+            %span.kanban-task-assignee{ data: { user_id: user.id } }
+              = user_image(user: user, class_name: 'kanban-icon', title: true)
+
+              - if task.status_draft? && is_author
+                = link_to destroy_assignee_task_path(task, user_id: user.id), method: :delete, remote: true, class: 'kanban-task-assignee-remove', data: { tooltip: tgm(:destroy), disable_with: disable_with_icon.html_safe } do
+                  = ph_bold_icon(:x)
+
+          - if assignees.size > 5
+            %span.kanban-task-assignee.kanban-task-assignee-more
+              = "+#{assignees.size - 5}"
+
+      - if task.status_draft? && is_author
+        = link_to assignee_modal_task_path(task), class: 'kanban-task-assignee-add text-default', remote: true, data: { tooltip: tm(Task, :add_assignee), disable_with: disable_with_icon.html_safe } do
+          = ph_bold_icon(:plus)

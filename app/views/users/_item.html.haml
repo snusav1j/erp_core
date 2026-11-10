@@ -1,0 +1,22 @@
+%tr.user-row{ data: { user_id: user.id } }
+  %td.text-center= user.id
+  %td
+    = link_to user_path(user), class: "user-action remote-link" do
+      = user_image(user: user)
+  %td= user.email
+  %td= user.last_name
+  %td= user.first_name
+  %td= user.middle_name
+  %td= user.phone
+  %td
+    .align-center
+      = user.role&.name
+      = owner_icon if user.owner?
+  %td= user.banned
+  %td= small_datetime(user.last_seen_at)
+  %td
+    = link_to user_path(user), method: :delete, class: 'text-danger', remote: true, data: { tooltip: tc(:destroy), confirm: tgm(:are_you_sure), disable_with: "#{disable_with_icon} #{tgm(:destroying)}".html_safe } do
+      = ph_bold_icon(:trash)
+  %td
+    = link_to versions_modal_path(model: "User", id: user.id), class: 'text-default', remote: true, data: { tooltip: tgm(:versions) } do
+      = ph_bold_icon(:clock_counter_clockwise)

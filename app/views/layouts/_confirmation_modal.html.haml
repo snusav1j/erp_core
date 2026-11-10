@@ -1,0 +1,12 @@
+.modal.fade#confirm-alert-modal
+  .modal-dialog.modal-auto
+    .modal-content
+      .modal-header
+        %h4.modal-title= tgm(:confirmation)
+        %button.close{ "aria-label" => "Close", "data-dismiss" => "modal", "type" => "button" }
+          %span{"aria-hidden" => "true"}= ph_icon('x')
+      .modal-body
+        %p.confirmation-message
+      .modal-footer
+        %button.btn.btn-default.pull-left{"data-dismiss" => "modal", :type => "button"}= tgm(:cancel)
+        %button.btn.btn-primary.pull-right.confirm{:type => "submit"}= tgm(:continue)

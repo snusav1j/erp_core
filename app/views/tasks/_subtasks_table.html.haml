@@ -1,0 +1,7 @@
+- task = local_assigns[:task]
+- subtasks = local_assigns[:subtasks]
+.flex-column{ style: "margin-bottom: 5px; gap: 3px;" }
+  = task_priority(task)
+  = render partial: '/tasks/deadline_block', locals: { task: task }
+- subtasks.each do |subtask|
+  = render partial: '/tasks/kanban_task', locals: { task: subtask, subtask: true }

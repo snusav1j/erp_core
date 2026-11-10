@@ -1,0 +1,6 @@
+<% if @approved %>
+  $("#tasks-table").html("<%= j render partial: '/tasks/kanban', locals: { tasks: @tasks_by_status } %>");
+  toastr.success({description: "<%= tm(Task, :approve) %>", life_time: 2000})
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

@@ -1,0 +1,12 @@
+%tr
+  %td{ style: "white-space: nowrap;" }
+    = small_datetime(version.created_at)
+
+  %td{ style: "white-space: nowrap;" }
+    = render "/versions/event", version: version
+
+  %td{ style: "max-width: 350px;" }
+    = render "/versions/changes", version: version
+
+  %td{ style: "white-space: nowrap;" }
+    = version.user&.fullname

@@ -1,0 +1,340 @@
+:root {
+  --main-color: #24a5df;
+  --main-color-hover: #1d99d3;
+  --main-color-active: #168bc4;
+  --main-color-light: #a9d2f0;
+  --main-color-lighter: #f3f9fe;
+
+  --secondary-color: #6b7076;
+  --secondary-color-hover: #60656b;
+  --secondary-color-active: #555a60;
+  --secondary-color-light: #f1f2f3;
+
+  --text-color: #292d31;
+  --text-color-secondary: #50565c;
+  --text-color-muted: #777d83;
+  --text-color-disabled: #a4a9ae;
+
+  --background-color: #ffffff;
+  --surface-color: #f7f7f5;
+  --surface-color-hover: #f1f1ef;
+  --surface-color-active: #e9e9e6;
+
+  --border-color: #dededb;
+  --border-color-light: #e8e8e5;
+  --border-color-dark: #d0d0cc;
+
+  --success-color: #20b866;
+  --success-color-hover: #1aae5d;
+  --success-color-active: #179f55;
+  --success-color-border: #43c97d;
+
+  --warning-color: #f29f2d;
+  --warning-color-hover: #e59222;
+  --warning-color-active: #d68519;
+  --warning-color-border: #f5b34d;
+
+  --danger-color: #e74755;
+  --danger-color-hover: #dc3c4b;
+  --danger-color-active: #cf3040;
+  --danger-color-border: #ee6873;
+
+  --info-color: #2196f3;
+  --info-color-hover: #1e88e5;
+  --info-color-active: #1976d2;
+  --info-color-border: #1467b9;
+
+  --primary-color: var(--main-color);
+  --primary-color-hover: var(--main-color-hover);
+  --primary-color-active: var(--main-color-active);
+  --primary-color-border: #42a5f5;
+
+  --sidebar-background: #ffffff;
+  --sidebar-text-color: #292d31;
+  --sidebar-text-secondary: #50565c;
+  --sidebar-text-muted: #777d83;
+  --sidebar-text-disabled: #a4a9ae;
+  --sidebar-border-color: #dededb;
+  --sidebar-item-hover: #f4f4f2;
+  --sidebar-item-active: #eaf6fb;
+  --sidebar-item-active-color: #24a5df;
+  --sidebar-icon-color: #777d83;
+  --sidebar-icon-active-color: #24a5df;
+
+  --box-shadow-sm: 0 1px 3px rgba(41, 45, 49, 0.14);
+  --box-shadow: 0 2px 8px rgba(41, 45, 49, 0.18);
+  --box-shadow-lg: 0 8px 24px rgba(41, 45, 49, 0.24);
+
+  --sm-border-radius: 3px;
+  --df-border-radius: 5px;
+  --md-border-radius: 8px;
+  --lg-border-radius: 10px;
+  --xxl-border-radius: 15px;
+}
+
+[data-theme="dark"] {
+  --main-color: #24a5df;
+  --main-color-hover: #1d99d3;
+  --main-color-active: #168bc4;
+  --main-color-light: #50697a;
+  --main-color-lighter: #292f35;
+
+  --secondary-color: #a4a9ae;
+  --secondary-color-hover: #b0b5ba;
+  --secondary-color-active: #969ba0;
+  --secondary-color-light: #34383c;
+
+  --text-color: #e8e9ea;
+  --text-color-secondary: #c9cbcd;
+  --text-color-muted: #96999c;
+  --text-color-disabled: #6d7073;
+
+  --background-color: #181818;
+  --surface-color: #202020;
+  --surface-color-hover: #252525;
+  --surface-color-active: #2a2a2a;
+
+  --border-color: #303030;
+  --border-color-light: #292929;
+  --border-color-dark: #363636;
+
+  --success-color: #20b866;
+  --success-color-hover: #1aae5d;
+  --success-color-active: #179f55;
+  --success-color-border: #43c97d;
+
+  --warning-color: #f29f2d;
+  --warning-color-hover: #e59222;
+  --warning-color-active: #d68519;
+  --warning-color-border: #f5b34d;
+
+  --danger-color: #e74755;
+  --danger-color-hover: #dc3c4b;
+  --danger-color-active: #cf3040;
+  --danger-color-border: #ee6873;
+
+  --info-color: #2196f3;
+  --info-color-hover: #1e88e5;
+  --info-color-active: #1976d2;
+  --info-color-border: #1467b9;
+
+  --primary-color: var(--main-color);
+  --primary-color-hover: var(--main-color-hover);
+  --primary-color-active: var(--main-color-active);
+  --primary-color-border: #42a5f5;
+
+  --sidebar-background: #1a1a1a;
+  --sidebar-text-color: #e8e9ea;
+  --sidebar-text-secondary: #c9cbcd;
+  --sidebar-text-muted: #96999c;
+  --sidebar-text-disabled: #6d7073;
+  --sidebar-border-color: #292929;
+  --sidebar-item-hover: #202020;
+  --sidebar-item-active: #252525;
+  --sidebar-item-active-color: #24a5df;
+  --sidebar-icon-color: #96999c;
+  --sidebar-icon-active-color: #24a5df;
+
+  --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --box-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  --sm-border-radius: 3px;
+  --df-border-radius: 5px;
+  --md-border-radius: 8px;
+  --lg-border-radius: 10px;
+  --xxl-border-radius: 15px;
+}
+
+.theme-label-light {
+  display: none;
+}
+
+[data-theme="dark"] .theme-label-dark {
+  display: none;
+}
+
+[data-theme="dark"] .theme-label-light {
+  display: inline;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  gap: 5px;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.color-badge {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--color-badge) 100%, var(--surface-color)) !important;
+  background: color-mix(in srgb, var(--color-badge) 15%, var(--background-color)) !important;
+
+  * {
+    color: inherit !important;
+  }
+}
+
+.custom-select__option.color-badge {
+  background: unset !important;
+  color: unset !important;
+}
+
+.custom-select__option.color-badge.is-highlighted {
+  color: color-mix(in srgb, var(--color-badge) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--color-badge) 15%, var(--background-color)) !important;
+}
+
+.custom-select__selected.color-badge {
+  .custom-select__selected-remove {
+    color: color-mix(in srgb, var(--color-badge) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--color-badge) 15%, var(--surface-color)) !important;
+  }
+}
+
+.custom-select__selected.color-badge {
+  .custom-select__selected-remove:hover {
+    color: color-mix(in srgb, var(--color-badge) 100%, var(--background-color)) !important;
+    background: color-mix(in srgb, var(--color-badge) 25%, var(--surface-color)) !important;
+  }
+}
+
+.popup-btn.text-success:hover {
+  color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--success-color) 10%, var(--surface-color)) !important;
+}
+
+.popup-btn.text-primary:hover {
+  color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--primary-color) 10%, var(--surface-color)) !important;
+}
+
+.popup-btn.text-warning:hover {
+  color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--warning-color) 10%, var(--surface-color)) !important;
+}
+
+.popup-btn.text-info:hover {
+  color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--info-color) 10%, var(--surface-color)) !important;
+}
+
+.popup-btn.text-danger:hover {
+  color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+  background: color-mix(in srgb, var(--danger-color) 10%, var(--surface-color)) !important;
+}
+
+.color-badge-success {
+  color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--success-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--success-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--success-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-primary {
+  color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--primary-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--primary-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-primary-light {
+  color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--primary-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--primary-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--primary-color) 50%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-warning {
+  color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--warning-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--warning-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--warning-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-info {
+  color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--info-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--info-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--info-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-danger {
+  color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+
+  * {
+    color: color-mix(in srgb, var(--danger-color) 100%, var(--background-color)) !important;
+  }
+
+  background: color-mix(in srgb, var(--danger-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--danger-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}
+
+.color-badge-default {
+  color: var(--text-color-muted) !important;
+
+  * {
+    color: var(--text-color-muted) !important;
+  }
+
+  background: color-mix(in srgb, var(--secondary-color) 10%, var(--surface-color)) !important;
+
+  .status-dot {
+    background: color-mix(in srgb, var(--secondary-color) 70%, var(--background-color));
+  }
+  user-select: none;
+}

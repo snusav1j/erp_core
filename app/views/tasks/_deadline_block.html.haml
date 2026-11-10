@@ -1,0 +1,9 @@
+- if !task.status_completed? && !task.status_cancelled? 
+  - deadline_class = Time.current > task.deadline ? 'text-danger' : ''
+  .align-center
+    .text-small.text-muted{ style: "font-weight: 450;" }= "#{tgm(:deadline)}:"
+    .text-small{ style: "font-weight: 500;", class: deadline_class }= compact_datetime(task.deadline)
+- elsif task.status_completed?
+  .align-center{ style: "white-space: nowrap;" }
+    .text-small.text-muted{ style: "font-weight: 450;" }= "#{tgm(:completed_in)}:"
+    .text-small{ style: "font-weight: 500;" }= compact_duration_from_seconds(task.work_duration)

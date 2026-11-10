@@ -1,0 +1,21 @@
+.content-box
+  .content-box-header{ data: { entity: @entity } }
+    %div
+      .align-center
+        .content-box-header-title.align-center
+          = link_to "#", class: "back-btn", data: { tooltip: tgm(:back), disable_with: disable_with_icon.html_safe } do
+            = ph_icon(:caret_left, 'text-default')
+          .page-icon= ph_duotone_icon(:shopping_bag, 'text-primary')
+          = tm(Role, :title_single)
+          %span.text-muted= "##{@role.id}"
+      = render_breadcrumbs
+  .content-box-body
+    = simple_form_for @role, remote: true, html: { id: 'role-permissions-form', data: { role_id: @role.id } } do |f|
+      - RolePermissions.all.each do |entity, permissions|
+        .role-permissions-section
+          .role-permissions-section-title= entity.to_s.humanize
+          - access = @role.permissions.dig(entity.to_s, 'access') == true
+          - permissions.each do |permission|
+            - input_id = "role_permission_#{entity}_#{permission}"
+            - disabled = permission != :access && !access
+            = f.input :permissions, as: :boolean, label: permission.to_s.humanize, input_html: { id: input_id, class: 'switch role-permission-toggle', name: "role[permissions][#{entity}][#{permission}]", value: '1', checked: @role.permissions.dig(entity.to_s, permission.to_s) == true, disabled: disabled, data: { entity: entity, permission: permission } }

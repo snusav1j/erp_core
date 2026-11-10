@@ -1,0 +1,9 @@
+- if version.create? || version.destroy?
+  = render "/versions/details_button", version: version
+- elsif version.changeset.length > 1
+  = render "/versions/details_button", version: version
+- else
+  - record_class = version.item_type.constantize
+
+  - version.changeset.each do |attribute, values|
+    = render "/versions/change_row", record_class: record_class, attribute: attribute, values: values

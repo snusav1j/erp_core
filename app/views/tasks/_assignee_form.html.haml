@@ -1,0 +1,7 @@
+= simple_form_for @task_assignee, url: assign_assignee_task_path(@task), remote: true, html: { id: 'task-assignee-form', novalidate: false } do |f|
+  .form
+    = f.hidden_field :task_id, value: @task.id
+
+    .row
+      .col-md-12
+        = f.input :user_id, as: :select, include_blank: tgm(:select), input_html: { id: 'task_assignee_user_id' }

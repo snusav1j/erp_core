@@ -1,0 +1,20 @@
+#devise-form
+
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+
+    .authorization-header
+      .flex-row.align-center.justify-space-between
+        %h2= tm(User, :password_recovery)
+        = link_to tm(User, :login), new_session_path(resource_name), class: 'remote-link btn-sm btn-default'
+
+    .authorization-body
+      .row
+        .col-md-12
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: tm(User, :email), required: true
+          = render "devise/shared/error_messages", resource: resource
+
+    .authorization-footer
+      .actions
+        = button_tag type: :submit, class: 'btn btn-primary', style: "width: 100%; display: flex; justify-content: center; align-items: center;", data: { disable_with: disable_with_icon.html_safe } do
+          = tm(User, :send_password_recovery_link)

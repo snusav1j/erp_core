@@ -1,0 +1,10 @@
+.kanban-column
+  .kanban-column-header
+    = task_status_badge(status)
+    %span.kanban-column-count
+      %span.text-muted= "#{tgm(:total_tasks).downcase}:"
+      %span= tasks.length
+
+  .kanban-column-body
+    - tasks.each do |task|
+      = render partial: '/tasks/kanban_task', locals: { task: task }

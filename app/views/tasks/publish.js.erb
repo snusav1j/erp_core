@@ -1,0 +1,15 @@
+<% if @published %>
+  <% tasks_count = current_user.active_tasks_count %>
+
+  <% if tasks_count > 0 %>
+    $('.current_user_active_tasks_count').html('<%= tasks_count %>')
+    $('.current_user_active_tasks_count').show()
+  <% else %>
+    $('.current_user_active_tasks_count').hide()
+  <% end %>
+
+  $("#tasks-table").html("<%= j render partial: '/tasks/kanban', locals: { tasks: @tasks_by_status } %>");
+  toastr.success({description: "<%= tm(Task, :task_published) %>", life_time: 2000})
+<% else %>
+  <%= toastr_flash() %>
+<% end %>

@@ -1,0 +1,12 @@
+- subtask = local_assigns[:subtask] || false
+- assignees = subtask ? task.parent.assignees : task.assignees
+- is_author = task.author_id == current_user.id || current_user.owner?
+- is_assignee = assignees.exists?(id: current_user.id) || current_user.owner?
+
+.kanban-task{ data: { task_id: task.id } }
+  = render partial: '/tasks/kanban_task_header', locals: { task: task, subtask: subtask, is_author: is_author, is_assignee: is_assignee }
+
+  = render partial: '/tasks/kanban_task_body', locals: { task: task, subtask: subtask, is_author: is_author, is_assignee: is_assignee }
+
+  - unless subtask
+    = render partial: '/tasks/kanban_task_footer', locals: { task: task, subtask: subtask, assignees: assignees, is_author: is_author, is_assignee: is_assignee }

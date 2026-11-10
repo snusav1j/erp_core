@@ -1,0 +1,52 @@
+- if model.images.attached?
+  - images = model.ordered_images
+
+  .images-carousel
+    .images-carousel-main
+      - if images.length > 1
+        %button.text-default.images-carousel-arrow.images-carousel-arrow-prev{ type: 'button' }
+          = ph_duotone_icon(:caret_left)
+
+      .images-carousel-viewport
+        - images.each_with_index do |image, index|
+          .images-carousel-slide{ class: ('active' if index.zero?), data: { image_id: image.id, index: index } }
+            = image_tag image, class: 'images-carousel-image'
+
+            = popup(id: "images-carousel-popup-#{model.id}-#{image.id}", position: :right, class_name: 'btn btn-sm btn-default') do
+              .popup-btn.images-carousel-add{ data: { form_id: 'product-form' } }
+                = ph_icon(:plus, 'text-primary')
+                = tgm(:add_images)
+              
+              = link_to "/products/#{model.id}/set_main_image", class: "popup-btn text-default #{model.main_image_id == image.id ? 'disabled' : ''}", data: { action: 'set-main-image', image_id: image.id } do
+                - if model.main_image_id != image.id
+                  = ph_bold_icon(:star, 'text-default')
+                  = tgm(:set_main_image)
+                - else
+                  = ph_fill_icon(:star, 'text-warning')
+                  = tgm(:selected_as_main_image)
+
+              %hr
+
+              = link_to "/products/#{model.id}/delete_image", class: 'popup-btn text-danger', data: { action: 'delete-image', image_id: image.id } do
+                = ph_icon(:trash)
+                = tgm(:destroy)
+
+      - if images.length > 1
+        %button.text-default.images-carousel-arrow.images-carousel-arrow-next{ type: 'button' }
+          = ph_duotone_icon(:caret_right)
+
+    .images-carousel-thumbnails
+      - images.each_with_index do |image, index|
+        .images-carousel-thumbnail{
+          class: ('active' if index.zero?),
+          data: {
+            image_id: image.id,
+            index: index,
+            carousel_popup_id: "images-carousel-popup-#{model.id}-#{image.id}"
+          }
+        }
+          = image_tag image, class: 'images-carousel-thumbnail-image'
+
+- else
+  %label.images-carousel-empty{ for: 'product_images' }
+    = ph_thin_icon(:image, 'images-carousel-empty-add')

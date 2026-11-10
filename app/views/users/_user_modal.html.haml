@@ -1,0 +1,13 @@
+.modal.fade#user-modal
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %h4.modal-title= title
+        %button.close{ "aria-label" => "Close", "data-dismiss" => "modal", "type" => "button" }
+          %span{"aria-hidden" => "true"}= ph_icon('x')
+      .modal-body
+        = render partial: '/users/form'
+
+      .modal-footer
+        %button.btn.btn-default.pull-left{"data-dismiss" => "modal", :type => "button"}= tgm(:cancel)
+        %button.btn.btn-primary.pull-right{:type => "submit", form: 'user-form', data: { disable_with: "#{tgm(:saving)} #{disable_with_icon}".html_safe }, data: { disable_with: "#{tgm(:saving)} #{disable_with_icon}".html_safe }}= tgm(:save)

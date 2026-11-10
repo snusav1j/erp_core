@@ -1,0 +1,19 @@
+.draggable {
+  cursor: grab;
+  user-select: none;
+  user-select: none;
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+.dragging .draggable{
+  cursor: grabbing !important;
+  z-index: 2147483647;
+}
+.column-indicator {
+  width: 3px !important;
+  border-radius: var(--df-border-radius);
+  height: 40px !important;
+  background: var(--primary-color) !important;
+  z-index: 999999999 !important;
+}
